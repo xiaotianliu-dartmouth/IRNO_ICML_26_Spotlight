@@ -3,474 +3,1225 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+
+  <meta name="title" content="Iterative Refinement Neural Operators are Learned Fixed-Point Solvers - Xiaotian Liu et al.">
+  <meta name="description" content="IRNO augments pre-trained neural operators with a learned refinement module applied via fixed-point iteration, achieving up to 56% error reduction on turbulent flow while provably converging.">
+  <meta name="keywords" content="neural operators, spectral bias, fixed-point iteration, iterative refinement, scientific machine learning, PDE surrogates, FNO, operator learning, ICML 2026">
+  <meta name="author" content="Xiaotian Liu, Shuyuan Shang, Xiaopeng Wang, Pu Ren, Yaoqing Yang">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
+
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
+  <meta property="og:site_name" content="Dartmouth College">
+  <meta property="og:title" content="Iterative Refinement Neural Operators are Learned Fixed-Point Solvers">
+  <meta property="og:description" content="IRNO augments pre-trained neural operators with a learned refinement module applied via fixed-point iteration, achieving up to 56% error reduction on turbulent flow while provably converging.">
+  <meta property="og:url" content="https://YOUR_DOMAIN.com/irno">
   <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
+  <meta property="og:image:alt" content="IRNO: Iterative Refinement Neural Operators">
+  <meta property="article:published_time" content="2026-07-01T00:00:00.000Z">
+  <meta property="article:author" content="Xiaotian Liu">
   <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="article:tag" content="neural operators">
+  <meta property="article:tag" content="spectral bias">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
+  <meta name="twitter:title" content="Iterative Refinement Neural Operators are Learned Fixed-Point Solvers">
+  <meta name="twitter:description" content="IRNO augments pre-trained neural operators with a learned refinement module applied via fixed-point iteration, achieving up to 56% error reduction on turbulent flow.">
   <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="twitter:image:alt" content="IRNO Research Preview">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
+  <meta name="citation_title" content="Iterative Refinement Neural Operators are Learned Fixed-Point Solvers: A Principled Approach to Spectral Bias Mitigation">
+  <meta name="citation_author" content="Liu, Xiaotian">
+  <meta name="citation_author" content="Shang, Shuyuan">
+  <meta name="citation_author" content="Wang, Xiaopeng">
+  <meta name="citation_author" content="Ren, Pu">
+  <meta name="citation_author" content="Yang, Yaoqing">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_conference_title" content="International Conference on Machine Learning">
+
   <meta name="theme-color" content="#2563eb">
   <meta name="msapplication-TileColor" content="#2563eb">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <title>IRNO: Iterative Refinement Neural Operators | ICML 2026 Spotlight</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
+
   <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
-  
-  <!-- Fonts - Optimized loading -->
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
+
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
+    "headline": "Iterative Refinement Neural Operators are Learned Fixed-Point Solvers: A Principled Approach to Spectral Bias Mitigation",
+    "description": "IRNO augments pre-trained neural operators with a learned refinement module applied via fixed-point iteration, achieving up to 56% error reduction on turbulent flow while provably converging.",
     "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
+      {"@type": "Person", "name": "Xiaotian Liu",   "affiliation": {"@type": "Organization", "name": "Dartmouth College"}},
+      {"@type": "Person", "name": "Shuyuan Shang",  "affiliation": {"@type": "Organization", "name": "The Chinese University of Hong Kong, Shenzhen"}},
+      {"@type": "Person", "name": "Xiaopeng Wang",  "affiliation": {"@type": "Organization", "name": "Dartmouth College"}},
+      {"@type": "Person", "name": "Pu Ren",          "affiliation": {"@type": "Organization", "name": "Lawrence Berkeley National Lab"}},
+      {"@type": "Person", "name": "Yaoqing Yang",   "affiliation": {"@type": "Organization", "name": "Dartmouth College"}}
     ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
+    "datePublished": "2026-07-01",
+    "publisher": {"@type": "Organization", "name": "ICML 2026"},
+    "keywords": ["neural operators", "spectral bias", "fixed-point iteration", "iterative refinement", "scientific machine learning"],
+    "isAccessibleForFree": true
   }
   </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+
+  <style>
+    /* TL;DR cards */
+    .tldr-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .tldr-grid { grid-template-columns: 1fr; }
+    }
+    .tldr-card {
+      background: var(--background-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .tldr-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .tldr-label {
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .tldr-card p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* Method section */
+    .method-figure {
+      margin: 2rem auto;
+      max-width: 587px;
+    }
+    .method-figure img {
+      width: 100%;
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
+    .method-figure figcaption {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 0.75rem;
+      line-height: 1.5;
+    }
+    .method-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .method-columns { grid-template-columns: 1fr; }
+    }
+    .method-col {
+      background: var(--background-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .method-col-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .method-col.irno .method-col-title {
+      color: var(--primary-color);
+    }
+    .method-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .method-col ul li {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      padding: 0.35rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .method-col ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--text-light);
+      font-weight: 700;
+    }
+    .method-col.irno ul li::before {
+      color: var(--primary-color);
+    }
+
+    /* Affiliation superscripts */
+    .affil-sup {
+      font-size: 0.72em;
+      vertical-align: super;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    /* Inline highlights */
+    .hl {
+      font-weight: 700;
+    }
+    .hl-stat {
+      font-weight: 700;
+      color: #d97706;
+    }
+
+    /* Corollary box */
+    .corollary-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 4px solid var(--primary-color);
+      border-radius: var(--border-radius);
+      padding: 1.5rem 2rem;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .corollary-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+    }
+    .corollary-body {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+    .corollary-box .katex-display {
+      margin: 0.75rem 0;
+    }
+
+    /* Stat cards */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 900px) { .stat-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+    .stat-card {
+      background: var(--background-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .stat-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+    .stat-number {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+    }
+    .stat-dataset {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      margin-top: 0.25rem;
+      font-style: italic;
+    }
+
+    /* Teaser cards */
+    .teaser-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    @media (max-width: 1024px) { .teaser-grid { grid-template-columns: 1fr; } }
+    .teaser-card {
+      background: var(--background-primary);
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .teaser-header {
+      background: var(--background-accent);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.9rem 1.2rem;
+    }
+    .teaser-tag {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 0.2rem;
+    }
+    .teaser-dataset {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+    .teaser-body {
+      padding: 1rem 1.2rem 1.2rem;
+    }
+    .teaser-frames {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .teaser-frame-wrap {
+      text-align: center;
+    }
+    .teaser-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #e5e7eb;
+      border: 1px dashed #9ca3af;
+      border-radius: var(--border-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .teaser-placeholder-gt {
+      background: #f3f4f6;
+      border-color: #d1d5db;
+    }
+    .teaser-placeholder-label {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      font-style: italic;
+    }
+    .teaser-frame-caption {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-top: 0.35rem;
+      font-weight: 600;
+    }
+    .teaser-slider-wrap {
+      margin-top: 0.5rem;
+    }
+    .teaser-slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-bottom: 0.3rem;
+    }
+    .teaser-cutoff-label {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+    .teaser-track {
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    .teaser-range {
+      width: 100%;
+      accent-color: var(--primary-color);
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .teaser-cutoff-marker {
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 2px;
+      height: 18px;
+      background: var(--primary-color);
+      border-radius: 1px;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .teaser-cutoff-marker::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid var(--primary-color);
+    }
+    .teaser-coming-soon {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      text-align: center;
+      font-style: italic;
+      margin-top: 0.25rem;
+    }
+
+    /* Figure grids */
+    .fig-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .fig-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .fig-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .fig-grid-2, .fig-grid-4 { grid-template-columns: 1fr; }
+    }
+    .fig-item img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow-md);
+    }
+    .fig-item figcaption {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+    .fig-equal-height .fig-item img {
+      height: 300px;
+      object-fit: contain;
+      background: var(--background-secondary);
+      border-radius: var(--border-radius);
+    }
+
+    /* Table toggle */
+    .table-toggle-group {
+      display: inline-flex;
+      gap: 0;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .table-toggle-btn {
+      background: var(--background-primary);
+      color: var(--text-secondary);
+      border: none;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: 'Inter', sans-serif;
+    }
+    .table-toggle-btn:not(:last-child) {
+      border-right: 1px solid var(--border-color);
+    }
+    .table-toggle-btn.active {
+      background: var(--primary-color);
+      color: white;
+    }
+    .table-toggle-btn:not(.active):hover {
+      background: var(--background-accent);
+      color: var(--text-primary);
+    }
+
+    /* Results tables */
+    .results-table-wrap {
+      text-align: left;
+    }
+    .table-caption {
+      font-size: 0.88rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .table-scroll {
+      overflow-x: auto;
+    }
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+    }
+    .results-table th {
+      background: var(--background-accent);
+      color: var(--text-primary);
+      font-weight: 700;
+      padding: 0.7rem 1rem;
+      border-bottom: 2px solid var(--border-color);
+      text-align: center;
+      white-space: nowrap;
+    }
+    .results-table td {
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--background-accent);
+      text-align: center;
+      vertical-align: middle;
+    }
+    .results-table .dataset-cell {
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: left;
+      white-space: nowrap;
+    }
+    .results-table .metric-cell {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      white-space: nowrap;
+    }
+    .results-table tr.group-sep td {
+      border-top: 2px solid var(--border-color);
+    }
+    .results-table tr.metric-sep td {
+      border-top: 1px dashed var(--border-color);
+    }
+    .results-table tbody tr:hover {
+      background: var(--background-secondary);
+    }
+    .results-table .ours-row td {
+      background: #eff6ff;
+    }
+    .results-table .ours-row:hover td {
+      background: #dbeafe;
+    }
+    /* Improvement coloring */
+    .impr { font-weight: 600; color: #16a34a; }
+
+    /* Affiliation row */
+    .affiliation-row {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-top: 0.6rem;
+    }
+    .affiliation-row span {
+      margin: 0 0.6rem;
+    }
+  </style>
 </head>
 <body>
 
-
-  <!-- Scroll to Top Button -->
+  <!-- Scroll to Top -->
   <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
     <i class="fas fa-chevron-up"></i>
   </button>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main id="main-content">
+
+  <!-- ===================== HERO ===================== -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+
+            <h1 class="title is-1 publication-title">
+              Iterative Refinement Neural Operators are Learned Fixed-Point Solvers
+            </h1>
+            <p class="is-size-5" style="color:var(--text-secondary); margin-bottom:1.75rem; font-style:italic;">
+              A Principled Approach to Spectral Bias Mitigation
+            </p>
+
             <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+                <a href="https://scholar.google.com/citations?user=32r5znUAAAAJ&hl=en" target="_blank">Xiaotian Liu</a><sup class="affil-sup">1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/shuyuan-shang-860ab3348/" target="_blank">Shuyuan Shang</a><sup class="affil-sup">2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://stephenw830.github.io/" target="_blank">Xiaopeng Wang</a><sup class="affil-sup">1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://paulpuren.github.io/" target="_blank">Pu Ren</a><sup class="affil-sup">3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://sites.google.com/site/yangyaoqingcmu/" target="_blank">Yaoqing Yang</a><sup class="affil-sup">1</sup>
+              </span>
+            </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+            <div class="affiliation-row">
+              <span><sup class="affil-sup">1</sup> Dartmouth College</span>
+              <span><sup class="affil-sup">2</sup> The Chinese University of Hong Kong, Shenzhen</span>
+              <span><sup class="affil-sup">3</sup> Lawrence Berkeley National Lab</span>
+            </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
+            <div style="margin-top:1.25rem;">
+              <span class="publication-venue" style="background:#eff6ff; color:#2563eb; border: 1px solid #bfdbfe;">ICML 2026 &nbsp;&middot;&nbsp; Spotlight</span>
+            </div>
 
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
+            <div class="column has-text-centered" style="margin-top:1.5rem;">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/ARXIV_ID.pdf" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/YOUR_REPO" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
                     <span>Code</span>
                   </a>
                 </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
+                  <a href="https://arxiv.org/abs/ARXIV_ID" target="_blank"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="ai ai-arxiv"></i></span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TL;DR ===================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">TL;DR</h2>
+          <p style="font-size:1.05rem; color:var(--text-secondary); max-width:680px; margin:0 auto 1.5rem; line-height:1.75;">
+            <span class="hl">Iterative Refinement Neural Operator (IRNO)</span> augments a pretrained neural operator with a shared-weight refinement module that iteratively corrects residual errors through a fixed-point-style update. This enables the model to recover fine-scale structures that are often smoothed out by single-pass neural operators.
+          </p>
+
+          <div class="tldr-grid">
+            <div class="tldr-card">
+              <div class="tldr-label">Plug-and-play</div>
+              <p>Wraps around a pretrained neural operator with <span class="hl">no retraining or architectural modification</span> of the base model.</p>
+            </div>
+
+            <div class="tldr-card">
+              <div class="tldr-label">Fixed-point interpretation</div>
+              <p>Provides a <span class="hl">contraction-style refinement view</span> under local assumptions, yielding a principled bound on the approximation error.</p>
+            </div>
+
+            <div class="tldr-card">
+              <div class="tldr-label">Targets spectral bias</div>
+              <p>A <span class="hl">progressive spectral loss</span> increasingly emphasizes high-frequency recovery across refinement steps.</p>
+            </div>
+
+            <div class="tldr-card">
+              <div class="tldr-label">Up to 56% error reduction</div>
+              <p>Achieves up to <span class="hl-stat">56.05% VRMSE improvement</span> on turbulent flow benchmarks and remains stable <span class="hl">beyond the training iteration count</span>.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- ===================== TEASERS ===================== -->
+  <section class="section" style="background:var(--background-secondary);">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Interactive Demos</h2>
+      <p class="has-text-centered" style="color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem;">
+        Step through refinement iterations to see how IRNO progressively recovers fine-scale details.
+        The dashed marker indicates the training cutoff <span class="hl">\(K\)</span>.
+        Frames will be available after inference re-run.
+      </p>
+      <div class="teaser-grid">
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
+        <!-- Teaser 1: ERA5 -->
+        <div class="teaser-card">
+          <div class="teaser-header">
+            <span class="teaser-tag">ERA5 16&times; Super-Resolution</span>
+            <span class="teaser-dataset">45&times;90 &rarr; 720&times;1440 &nbsp;|&nbsp; Base: FNO &nbsp;|&nbsp; Training cutoff \(K=6\)</span>
+          </div>
+          <div class="teaser-body">
+            <div class="teaser-frames">
+              <div class="teaser-frame-wrap">
+                <div class="teaser-placeholder">
+                  <span class="teaser-placeholder-label">Prediction (k=0)</span>
+                </div>
+                <div class="teaser-frame-caption">Base FNO</div>
+              </div>
+              <div class="teaser-frame-wrap">
+                <div class="teaser-placeholder teaser-placeholder-gt">
+                  <span class="teaser-placeholder-label">Ground Truth</span>
+                </div>
+                <div class="teaser-frame-caption">Reference</div>
+              </div>
+            </div>
+            <div class="teaser-slider-wrap">
+              <div class="teaser-slider-labels">
+                <span>k=0</span><span>k=2</span><span>k=4</span><span class="teaser-cutoff-label">K=6</span><span>k=8</span><span>k=10</span><span>k=12</span>
+              </div>
+              <div class="teaser-track">
+                <div class="teaser-cutoff-marker" style="left:calc(6/12 * 100%)"></div>
+                <input type="range" min="0" max="12" value="0" step="1" class="teaser-range" disabled>
+              </div>
+              <div class="teaser-coming-soon">Inference frames coming soon</div>
+            </div>
+          </div>
         </div>
+
+        <!-- Teaser 2: TR-2D -->
+        <div class="teaser-card">
+          <div class="teaser-header">
+            <span class="teaser-tag">TR-2D Turbulent Radiative Layer</span>
+            <span class="teaser-dataset">384&times;128 &nbsp;|&nbsp; Base: TFNO &nbsp;|&nbsp; Training cutoff \(K=6\)</span>
+          </div>
+          <div class="teaser-body">
+            <div class="teaser-frames">
+              <div class="teaser-frame-wrap">
+                <div class="teaser-placeholder">
+                  <span class="teaser-placeholder-label">Prediction (k=0)</span>
+                </div>
+                <div class="teaser-frame-caption">Base TFNO</div>
+              </div>
+              <div class="teaser-frame-wrap">
+                <div class="teaser-placeholder teaser-placeholder-gt">
+                  <span class="teaser-placeholder-label">Ground Truth</span>
+                </div>
+                <div class="teaser-frame-caption">Reference</div>
+              </div>
+            </div>
+            <div class="teaser-slider-wrap">
+              <div class="teaser-slider-labels">
+                <span>k=0</span><span>k=1</span><span>k=2</span><span>k=3</span><span>k=4</span><span>k=5</span><span class="teaser-cutoff-label">K=6</span><span>k=7</span><span>k=8</span>
+              </div>
+              <div class="teaser-track">
+                <div class="teaser-cutoff-marker" style="left:calc(6/8 * 100%)"></div>
+                <input type="range" min="0" max="8" value="0" step="1" class="teaser-range" disabled>
+              </div>
+              <div class="teaser-coming-soon">Inference frames coming soon</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teaser 3: RIGNO / CE-Gauss -->
+        <div class="teaser-card">
+          <div class="teaser-header">
+            <span class="teaser-tag">CE-Gauss (Irregular Mesh)</span>
+            <span class="teaser-dataset">16,384 nodes &nbsp;|&nbsp; Base: RIGNO &nbsp;|&nbsp; Training cutoff \(K=4\)</span>
+          </div>
+          <div class="teaser-body">
+            <div class="teaser-frames">
+              <div class="teaser-frame-wrap">
+                <div class="teaser-placeholder">
+                  <span class="teaser-placeholder-label">Prediction (k=0)</span>
+                </div>
+                <div class="teaser-frame-caption">Base RIGNO</div>
+              </div>
+              <div class="teaser-frame-wrap">
+                <div class="teaser-placeholder teaser-placeholder-gt">
+                  <span class="teaser-placeholder-label">Ground Truth</span>
+                </div>
+                <div class="teaser-frame-caption">Reference</div>
+              </div>
+            </div>
+            <div class="teaser-slider-wrap">
+              <div class="teaser-slider-labels">
+                <span>k=0</span><span>k=1</span><span>k=2</span><span>k=3</span><span class="teaser-cutoff-label">K=4</span>
+              </div>
+              <div class="teaser-track">
+                <div class="teaser-cutoff-marker" style="left:calc(4/4 * 100%)"></div>
+                <input type="range" min="0" max="4" value="0" step="1" class="teaser-range" disabled>
+              </div>
+              <div class="teaser-coming-soon">Inference frames coming soon</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+  </section>
 
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
+  <!-- ===================== ABSTRACT ===================== -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Neural operators serve as fast, data-driven surrogates for scientific modeling but typically rely on a monolithic, single-pass inference procedure that struggles to resolve high-frequency details, a limitation known as <span class="hl">spectral bias</span>. We introduce the Iterative Refinement Neural Operator (IRNO), which augments pre-trained operators with a learned refinement module iteratively applied via <span class="hl">fixed-point iteration</span>. IRNO decomposes the prediction into a coarse initialization followed by successive residual corrections, paralleling classical numerical solvers. Under mild assumptions, we establish <span class="hl">contraction</span> of the induced operator, ensuring convergence to a <span class="hl">unique fixed point</span>. To explicitly target high-frequency errors, we propose a <span class="hl">progressive spectral loss</span> that adaptively increases penalty on high-frequency components over refinement steps during training.
+            </p>
+            <p>
+              Across physical systems, IRNO consistently lowers error, with up to <span class="hl-stat">56.05% improvement</span> on turbulent flow. On Active Matter, spectral analysis reveals that, relative to the base operator, the normalized error ratios decrease to <span class="hl-stat">27.72&#8211;36.10%</span> in low-, <span class="hl-stat">5.07&#8211;6.68%</span> in mid-, and <span class="hl-stat">1.48&#8211;2.04%</span> in high-frequency bands, remaining stable beyond the trained iteration count.
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- End youtube video -->
+  </section>
 
+  <!-- ===================== METHOD ===================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Pipeline</h2>
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
+          <figure class="method-figure">
+            <img src="static/images/flow_chart.png"
+                 alt="Top: standard neural operators perform single-pass inference and often lose fine-scale details. Bottom: IRNO iteratively corrects residuals with a shared-weight refinement operator."
+                 loading="lazy">
+            <figcaption>
+              Standard neural operators produce a single-pass estimate (top). IRNO reformulates inference as a dynamic process, iteratively correcting the residual with a shared-weight refinement operator (bottom).
+            </figcaption>
+          </figure>
+
+          <div class="method-columns">
+            <div class="method-col">
+              <div class="method-col-title">Standard neural operators</div>
+              <ul>
+                <li>Predict the solution in a <span class="hl">single forward pass</span></li>
+                <li><span class="hl">Monolithic inference</span> can smooth out fine-scale structures</li>
+                <li>Often exhibits strong <span class="hl">spectral bias</span>, especially in high-frequency regimes</li>
+              </ul>
+            </div>
+
+            <div class="method-col irno">
+              <div class="method-col-title">IRNO</div>
+              <ul>
+                <li>A <span class="hl">frozen base operator</span> first provides a coarse initialization, \(h_0 = T_{\text{base}}(x)\)</li>
+                <li>A <span class="hl">shared-weight refinement operator</span> \(\Phi_\theta\) is then applied iteratively</li>
+                <li>At each step, it takes the original input \(x\) together with the current estimate \(h_k\)</li>
+                <li>It predicts a <span class="hl">residual correction</span> and updates the state as \(h_{k+1} = h_k + \alpha \cdot \Phi_{\theta}(x,\, h_k)\)</li>
+                <li>A <span class="hl">progressive spectral loss</span> increasingly emphasizes high-frequency recovery across refinement steps</li>
+                <li>The base operator requires <span class="hl">no retraining or architectural modification</span></li>
+              </ul>
+            </div>
+          </div>
+
         </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
       </div>
     </div>
   </section>
-<!--End paper poster -->
 
+  <!-- ===================== THEORY ===================== -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Theory</h2>
+          <p style="font-size:0.95rem; color:var(--text-secondary); max-width:680px; margin:0 auto 1.75rem;">
+            Under local smoothness assumptions, IRNO's update rule is a contraction mapping. Even when the learned operator carries non-zero bias at the true solution, convergence is still guaranteed as the iteration settles to a unique fixed point whose error floor scales linearly with that bias.
+          </p>
 
+          <div class="corollary-box">
+            <div class="corollary-label">Corollary 3.3 &thinsp;&mdash;&thinsp; Convergence with Bias</div>
+            <p class="corollary-body">
+              If \(b = \Phi_\theta(x, y) \neq 0\) and \(\|b\|\) is sufficiently small, the iteration converges linearly to a unique fixed point \(h^*\). The limiting error satisfies
+            </p>
+            \[ \|e^*\| \;\leq\; \frac{\alpha\,\|b\|}{1 - q} \;+\; \mathcal{O}(\|b\|^2) \]
+            <p class="corollary-body" style="margin-top:0.75rem;">
+              where \(q < 1\) is the contraction factor and \(\alpha\) is the step size. Minimizing \(\|b\|\) via the fixed-point regularizer \(\mathcal{L}_{\text{fp}}\) directly lowers the error floor.
+            </p>
+          </div>
 
-<!--BibTex citation -->
+          <p style="font-size:0.9rem; color:var(--text-secondary); margin:2rem auto 1rem; max-width:640px;">
+            The scatter plots below validate Corollary 3.3 empirically. Across both benchmarks, the minimum attainable error correlates strongly and linearly with the bias magnitude \(\|\Phi_\theta(x, y)\|\), with Pearson \(r > 0.93\) in both cases.
+          </p>
+
+          <div class="fig-grid-2 fig-equal-height">
+            <figure class="fig-item">
+              <img src="static/images/AM_bias_error.png" alt="Bias vs error floor — Active Matter" loading="lazy">
+              <figcaption>Active Matter (FNO). Pearson \(r = 0.933\), \(p \ll 10^{-10}\).</figcaption>
+            </figure>
+            <figure class="fig-item">
+              <img src="static/images/TR_bias_error.png" alt="Bias vs error floor — TR-2D" loading="lazy">
+              <figcaption>TR-2D (TFNO). Pearson \(r = 0.949\), \(p \ll 10^{-10}\).</figcaption>
+            </figure>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Results</h2>
+
+          <!-- Stat cards -->
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-number">56.05%</div>
+              <div class="stat-label">VRMSE reduction</div>
+              <div class="stat-dataset">Turbulent flow (TR-2D)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">80.46%</div>
+              <div class="stat-label">VRMSE reduction</div>
+              <div class="stat-dataset">Active Matter</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">34.09%</div>
+              <div class="stat-label">RFNE reduction</div>
+              <div class="stat-dataset">ERA5 16× SR</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number">21.3%</div>
+              <div class="stat-label">L² error reduction</div>
+              <div class="stat-dataset">Irregular mesh (CE-Gauss)</div>
+            </div>
+          </div>
+
+          <!-- Table toggle -->
+          <div class="table-toggle-group">
+            <button class="table-toggle-btn active" onclick="switchTable('t1', this)">Main Results</button>
+            <button class="table-toggle-btn" onclick="switchTable('t2', this)">ERA5 SOTA</button>
+          </div>
+
+          <!-- Table 1: Global performance -->
+          <div id="t1" class="results-table-wrap">
+            <p class="table-caption">
+              Iterative error reduction across physical systems. FNO evaluated at \(K=6\), TFNO and WDSR at \(K=4\).
+              Metrics are VRMSE for TR-2D and Active Matter; ACC and RFNE for ERA5.
+              ERA5 FNO results use the progressive spectral schedule.
+            </p>
+            <div class="table-scroll">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th>Metric</th>
+                  <th>Base Model</th>
+                  <th>Initial</th>
+                  <th>IRNO (Ours)</th>
+                  <th>Improvement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2" class="dataset-cell">TR-2D</td>
+                  <td rowspan="2" class="metric-cell">VRMSE&thinsp;↓</td>
+                  <td>FNO</td>
+                  <td>0.2394</td>
+                  <td><strong>0.1309</strong></td>
+                  <td class="impr">45.32%</td>
+                </tr>
+                <tr>
+                  <td>TFNO</td>
+                  <td>0.2371</td>
+                  <td><strong>0.1042</strong></td>
+                  <td class="impr">56.05%</td>
+                </tr>
+                <tr class="group-sep">
+                  <td rowspan="2" class="dataset-cell">Active Matter</td>
+                  <td rowspan="2" class="metric-cell">VRMSE&thinsp;↓</td>
+                  <td>FNO</td>
+                  <td>0.1017</td>
+                  <td><strong>0.0501</strong></td>
+                  <td class="impr">50.73%</td>
+                </tr>
+                <tr>
+                  <td>TFNO</td>
+                  <td>0.1981</td>
+                  <td><strong>0.0387</strong></td>
+                  <td class="impr">80.46%</td>
+                </tr>
+                <tr class="group-sep">
+                  <td rowspan="4" class="dataset-cell">ERA5</td>
+                  <td rowspan="2" class="metric-cell">ACC&thinsp;↑</td>
+                  <td>FNO</td>
+                  <td>0.7523</td>
+                  <td><strong>0.892</strong></td>
+                  <td class="impr">18.59%</td>
+                </tr>
+                <tr>
+                  <td>WDSR</td>
+                  <td>0.9091</td>
+                  <td><strong>0.9104</strong></td>
+                  <td class="impr">0.14%</td>
+                </tr>
+                <tr class="metric-sep">
+                  <td rowspan="2" class="metric-cell">RFNE&thinsp;↓</td>
+                  <td>FNO</td>
+                  <td>0.3247</td>
+                  <td><strong>0.214</strong></td>
+                  <td class="impr">34.09%</td>
+                </tr>
+                <tr>
+                  <td>WDSR</td>
+                  <td>0.2119</td>
+                  <td><strong>0.1953</strong></td>
+                  <td class="impr">7.83%</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+
+          <!-- Table 2: ERA5 SOTA comparison -->
+          <div id="t2" class="results-table-wrap" style="display:none;">
+            <p class="table-caption">
+              ERA5 16&times; super-resolution comparison with spectral state-of-the-art methods.
+              IRNO uses WDSR as the base operator.
+            </p>
+            <div class="table-scroll">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>ACC&thinsp;↑</th>
+                  <th>RFNE&thinsp;↓</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>ResUNet-HFS</td>
+                  <td>0.892</td>
+                  <td>0.225</td>
+                </tr>
+                <tr>
+                  <td>HiNOTE</td>
+                  <td>0.906</td>
+                  <td>0.222</td>
+                </tr>
+                <tr class="ours-row">
+                  <td><strong>IRNO (WDSR, Ours)</strong></td>
+                  <td><strong>0.910</strong></td>
+                  <td><strong>0.195</strong></td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SPECTRAL ANALYSIS ===================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Spectral Dynamics</h2>
+          <p style="font-size:0.95rem; color:var(--text-secondary); max-width:680px; margin:0 auto 1.5rem;">
+            IRNO systematically reduces error across frequency bands, with the largest gains in mid-to-high frequencies where base operators exhibit the strongest spectral bias.
+          </p>
+          <div class="fig-grid-2 fig-equal-height">
+            <figure class="fig-item">
+              <img src="static/images/average_spectral_error.png" alt="Normalized spectral error ratio across refinement steps" loading="lazy">
+              <figcaption>Median normalized spectral error ratio across refinement steps. IRNO consistently attenuates mid-to-high frequency error.</figcaption>
+            </figure>
+            <figure class="fig-item">
+              <img src="static/images/spectral_bias_field_3.png" alt="Spectral bias field visualization" loading="lazy">
+              <figcaption>Spatial field visualization of spectral bias. Fine-scale details progressively recovered across refinement steps.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TRANSFERABILITY ===================== -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Transferability</h2>
+          <p style="font-size:0.95rem; color:var(--text-secondary); max-width:680px; margin:0 auto 1.5rem;">
+            IRNO trained on one base operator transfers to refine predictions from a different base operator without retraining, confirming that the learned update dynamics are not specific to a single architecture.
+          </p>
+          <div class="results-table-wrap">
+            <p class="table-caption">
+              Subscripts denote the operator IRNO was trained with. For example, \(\text{IRNO}_{\text{TFNO}}\) was trained with TFNO as the base and is evaluated here on FNO predictions.
+            </p>
+            <div class="table-scroll">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th>Metric</th>
+                  <th>Base + \(\text{IRNO}_{\text{train}}\)</th>
+                  <th>Initial</th>
+                  <th>IRNO (Ours)</th>
+                  <th>Improvement</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2" class="dataset-cell">TR-2D</td>
+                  <td rowspan="2" class="metric-cell">VRMSE&thinsp;↓</td>
+                  <td>FNO + \(\text{IRNO}_{\text{TFNO}}\)</td>
+                  <td>0.2396</td>
+                  <td><strong>0.0994</strong></td>
+                  <td class="impr">58.53%</td>
+                </tr>
+                <tr>
+                  <td>TFNO + \(\text{IRNO}_{\text{FNO}}\)</td>
+                  <td>0.2366</td>
+                  <td><strong>0.1345</strong></td>
+                  <td class="impr">43.15%</td>
+                </tr>
+                <tr class="group-sep">
+                  <td rowspan="2" class="dataset-cell">Active Matter</td>
+                  <td rowspan="2" class="metric-cell">VRMSE&thinsp;↓</td>
+                  <td>FNO + \(\text{IRNO}_{\text{TFNO}}\)</td>
+                  <td>0.1004</td>
+                  <td><strong>0.0445</strong></td>
+                  <td class="impr">55.66%</td>
+                </tr>
+                <tr>
+                  <td>TFNO + \(\text{IRNO}_{\text{FNO}}\)</td>
+                  <td>0.1955</td>
+                  <td><strong>0.1127</strong></td>
+                  <td class="impr">42.36%</td>
+                </tr>
+                <tr class="group-sep">
+                  <td rowspan="4" class="dataset-cell">ERA5</td>
+                  <td rowspan="2" class="metric-cell">ACC&thinsp;↑</td>
+                  <td>FNO + \(\text{IRNO}_{\text{WDSR}}\)</td>
+                  <td>0.7523</td>
+                  <td><strong>0.8022</strong></td>
+                  <td class="impr">6.22%</td>
+                </tr>
+                <tr>
+                  <td>WDSR + \(\text{IRNO}_{\text{FNO}}\)</td>
+                  <td>0.9091</td>
+                  <td><strong>0.9219</strong></td>
+                  <td class="impr">1.39%</td>
+                </tr>
+                <tr class="metric-sep">
+                  <td rowspan="2" class="metric-cell">RFNE&thinsp;↓</td>
+                  <td>FNO + \(\text{IRNO}_{\text{WDSR}}\)</td>
+                  <td>0.3247</td>
+                  <td><strong>0.2823</strong></td>
+                  <td class="impr">13.06%</td>
+                </tr>
+                <tr>
+                  <td>WDSR + \(\text{IRNO}_{\text{FNO}}\)</td>
+                  <td>0.2119</td>
+                  <td><strong>0.1935</strong></td>
+                  <td class="impr">8.68%</td>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONVERGENCE ===================== -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Convergence Behavior</h2>
+          <p style="font-size:0.95rem; color:var(--text-secondary); max-width:680px; margin:0 auto 1.5rem;">
+            Error decreases monotonically across refinement steps and remains stable beyond the training cutoff \(K\) (dashed line), confirming the contraction dynamics predicted by theory.
+          </p>
+          <div class="fig-grid-4">
+            <figure class="fig-item">
+              <img src="static/images/TR2D_errors.png" alt="TR-2D VRMSE vs refinement step" loading="lazy">
+              <figcaption>TR-2D (VRMSE ↓)</figcaption>
+            </figure>
+            <figure class="fig-item">
+              <img src="static/images/ACTIVE_errors.png" alt="Active Matter VRMSE vs refinement step" loading="lazy">
+              <figcaption>Active Matter (VRMSE ↓)</figcaption>
+            </figure>
+            <figure class="fig-item">
+              <img src="static/images/ERA_errors.png" alt="ERA5 RFNE vs refinement step" loading="lazy">
+              <figcaption>ERA5 (RFNE ↓)</figcaption>
+            </figure>
+            <figure class="fig-item">
+              <img src="static/images/ERA_ACC.png" alt="ERA5 ACC vs refinement step" loading="lazy">
+              <figcaption>ERA5 (ACC ↑)</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EFFICIENCY ===================== -->
+  <section class="section hero">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column">
+          <h2 class="title is-3">Accuracy vs Compute</h2>
+          <p style="font-size:0.95rem; color:var(--text-secondary); max-width:680px; margin:0 auto 1.5rem;">
+            IRNO achieves a favorable accuracy-compute trade-off. Each additional refinement step moves along the Pareto frontier, allowing compute to be traded for accuracy at inference time.
+          </p>
+          <div class="fig-grid-2 fig-equal-height">
+            <figure class="fig-item">
+              <img src="static/images/acc-flops.png" alt="ACC vs FLOPs Pareto plot" loading="lazy">
+              <figcaption>ACC vs FLOPs (ERA5). IRNO at each refinement step k shown as separate points.</figcaption>
+            </figure>
+            <figure class="fig-item">
+              <img src="static/images/rfne-flops.png" alt="RFNE vs FLOPs Pareto plot" loading="lazy">
+              <figcaption>RFNE vs FLOPs (ERA5). Lower-right is better.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BIBTEX ===================== -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <div class="bibtex-header">
@@ -480,41 +1231,52 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+      <pre id="bibtex-code"><code>@inproceedings{liu2026irno,
+  title     = {Iterative Refinement Neural Operators are Learned Fixed-Point Solvers:
+               A Principled Approach to Spectral Bias Mitigation},
+  author    = {Liu, Xiaotian and Shang, Shuyuan and Wang, Xiaopeng and Ren, Pu and Yang, Yaoqing},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  year      = {2026}
 }</code></pre>
     </div>
-</section>
-<!--End BibTex citation -->
+  </section>
 
-
+  <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              This page was built using the
+              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+              Licensed under
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+  </main>
 
-    <!-- End of Statcounter Code -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\(', right: '\\)', display: false},
+        {left: '\\[', right: '\\]', display: true}
+      ]
+    });"></script>
 
-  </body>
-  </html>
+  <script>
+    function switchTable(id, btn) {
+      document.querySelectorAll('.results-table-wrap').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.table-toggle-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(id).style.display = 'block';
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
