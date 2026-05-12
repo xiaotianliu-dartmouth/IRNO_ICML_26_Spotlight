@@ -290,7 +290,7 @@
     /* Teaser cards */
     .teaser-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr 1.5fr;
       gap: 1.5rem;
     }
     @media (max-width: 1024px) { .teaser-grid { grid-template-columns: 1fr; } }
@@ -375,6 +375,8 @@
     .teaser-range {
       width: 100%;
       accent-color: var(--primary-color);
+    }
+    .teaser-range:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
@@ -406,6 +408,7 @@
       font-style: italic;
       margin-top: 0.25rem;
     }
+
 
     /* Figure grids */
     .fig-grid-2 {
@@ -578,7 +581,7 @@
 
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://scholar.google.com/citations?user=32r5znUAAAAJ&hl=en" target="_blank">Xiaotian Liu</a><sup class="affil-sup">1</sup>,
+                <a href="https://xiaotianliu-dartmouth.github.io/" target="_blank">Xiaotian Liu</a><sup class="affil-sup">1</sup>,
               </span>
               <span class="author-block">
                 <a href="https://www.linkedin.com/in/shuyuan-shang-860ab3348/" target="_blank">Shuyuan Shang</a><sup class="affil-sup">2</sup>,
@@ -681,30 +684,30 @@
       <h2 class="title is-3 has-text-centered">Interactive Demos</h2>
       <p class="has-text-centered" style="color:var(--text-secondary);margin-bottom:2rem;font-size:0.95rem;">
         Step through refinement iterations to see how IRNO progressively recovers fine-scale details.
-        The dashed marker indicates the training cutoff <span class="hl">\(K\)</span>.
+        The blue marker indicates the training cutoff <span class="hl">\(K\)</span>.
         Frames will be available after inference re-run.
       </p>
       <div class="teaser-grid">
 
-        <!-- Teaser 1: ERA5 -->
+        <!-- Teaser 1: ERA5 16x -->
         <div class="teaser-card">
           <div class="teaser-header">
             <span class="teaser-tag">ERA5 16&times; Super-Resolution</span>
-            <span class="teaser-dataset">45&times;90 &rarr; 720&times;1440 &nbsp;|&nbsp; Base: FNO &nbsp;|&nbsp; Training cutoff \(K=6\)</span>
+            <span class="teaser-dataset">45&times;90 &rarr; 720&times;1440 &nbsp;|&nbsp; Base: FNO<br>Training cutoff \(K=6\)</span>
           </div>
           <div class="teaser-body">
             <div class="teaser-frames">
               <div class="teaser-frame-wrap">
-                <div class="teaser-placeholder">
-                  <span class="teaser-placeholder-label">Prediction (k=0)</span>
-                </div>
-                <div class="teaser-frame-caption">Base FNO</div>
+                <img id="era5-16x-pred" src="static/images/era5_16x_demo/era5/k0.png"
+                     alt="ERA5 16x IRNO prediction"
+                     style="width:100%;border-radius:var(--border-radius);display:block;">
+                <div class="teaser-frame-caption" id="era5-16x-caption">Base FNO</div>
               </div>
               <div class="teaser-frame-wrap">
-                <div class="teaser-placeholder teaser-placeholder-gt">
-                  <span class="teaser-placeholder-label">Ground Truth</span>
-                </div>
-                <div class="teaser-frame-caption">Reference</div>
+                <img src="static/images/era5_16x_demo/era5/gt.png"
+                     alt="ERA5 16x ground truth"
+                     style="width:100%;border-radius:var(--border-radius);display:block;">
+                <div class="teaser-frame-caption">Ground Truth</div>
               </div>
             </div>
             <div class="teaser-slider-wrap">
@@ -713,9 +716,43 @@
               </div>
               <div class="teaser-track">
                 <div class="teaser-cutoff-marker" style="left:calc(6/12 * 100%)"></div>
-                <input type="range" min="0" max="12" value="0" step="1" class="teaser-range" disabled>
+                <input type="range" min="0" max="12" value="0" step="1" class="teaser-range"
+                       id="era5-16x-slider" oninput="updateERA5_16x(this.value)">
               </div>
-              <div class="teaser-coming-soon">Inference frames coming soon</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teaser 2: ERA5 8x -->
+        <div class="teaser-card">
+          <div class="teaser-header">
+            <span class="teaser-tag">ERA5 8&times; Super-Resolution</span>
+            <span class="teaser-dataset">90&times;180 &rarr; 720&times;1440 &nbsp;|&nbsp; Base: FNO<br>Training cutoff \(K=6\)</span>
+          </div>
+          <div class="teaser-body">
+            <div class="teaser-frames">
+              <div class="teaser-frame-wrap">
+                <img id="era5-8x-pred" src="static/images/era5_8x_demo/k0.png"
+                     alt="ERA5 8x IRNO prediction"
+                     style="width:100%;border-radius:var(--border-radius);display:block;">
+                <div class="teaser-frame-caption" id="era5-8x-caption">Base FNO</div>
+              </div>
+              <div class="teaser-frame-wrap">
+                <img src="static/images/era5_8x_demo/gt.png"
+                     alt="ERA5 8x ground truth"
+                     style="width:100%;border-radius:var(--border-radius);display:block;">
+                <div class="teaser-frame-caption">Ground Truth</div>
+              </div>
+            </div>
+            <div class="teaser-slider-wrap">
+              <div class="teaser-slider-labels">
+                <span>k=0</span><span>k=2</span><span>k=4</span><span class="teaser-cutoff-label">K=6</span><span>k=8</span><span>k=10</span><span>k=12</span>
+              </div>
+              <div class="teaser-track">
+                <div class="teaser-cutoff-marker" style="left:calc(6/12 * 100%)"></div>
+                <input type="range" min="0" max="12" value="0" step="1" class="teaser-range"
+                       id="era5-8x-slider" oninput="updateERA5_8x(this.value)">
+              </div>
             </div>
           </div>
         </div>
@@ -724,66 +761,32 @@
         <div class="teaser-card">
           <div class="teaser-header">
             <span class="teaser-tag">TR-2D Turbulent Radiative Layer</span>
-            <span class="teaser-dataset">384&times;128 &nbsp;|&nbsp; Base: TFNO &nbsp;|&nbsp; Training cutoff \(K=6\)</span>
+            <span class="teaser-dataset">384&times;128 &nbsp;|&nbsp; Base: TFNO<br>Training cutoff \(K=4\)</span>
           </div>
           <div class="teaser-body">
             <div class="teaser-frames">
               <div class="teaser-frame-wrap">
-                <div class="teaser-placeholder">
-                  <span class="teaser-placeholder-label">Prediction (k=0)</span>
-                </div>
-                <div class="teaser-frame-caption">Base TFNO</div>
+                <img id="tr2d-pred" src="static/images/tr2d_demo_crop/k0.png"
+                     alt="TR-2D IRNO prediction"
+                     style="width:100%;border-radius:var(--border-radius);display:block;">
+                <div class="teaser-frame-caption" id="tr2d-pred-caption">Base TFNO</div>
               </div>
               <div class="teaser-frame-wrap">
-                <div class="teaser-placeholder teaser-placeholder-gt">
-                  <span class="teaser-placeholder-label">Ground Truth</span>
-                </div>
-                <div class="teaser-frame-caption">Reference</div>
+                <img src="static/images/tr2d_demo_crop/gt.png"
+                     alt="TR-2D ground truth"
+                     style="width:100%;border-radius:var(--border-radius);display:block;">
+                <div class="teaser-frame-caption">Ground Truth</div>
               </div>
             </div>
             <div class="teaser-slider-wrap">
               <div class="teaser-slider-labels">
-                <span>k=0</span><span>k=1</span><span>k=2</span><span>k=3</span><span>k=4</span><span>k=5</span><span class="teaser-cutoff-label">K=6</span><span>k=7</span><span>k=8</span>
+                <span>k=0</span><span>k=1</span><span>k=2</span><span>k=3</span><span class="teaser-cutoff-label">K=4</span><span>k=5</span><span>k=6</span><span>k=7</span><span>k=8</span>
               </div>
               <div class="teaser-track">
-                <div class="teaser-cutoff-marker" style="left:calc(6/8 * 100%)"></div>
-                <input type="range" min="0" max="8" value="0" step="1" class="teaser-range" disabled>
+                <div class="teaser-cutoff-marker" style="left:calc(4/8 * 100%)"></div>
+                <input type="range" min="0" max="8" value="0" step="1" class="teaser-range"
+                       id="tr2d-slider" oninput="updateTR2D(this.value)">
               </div>
-              <div class="teaser-coming-soon">Inference frames coming soon</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Teaser 3: RIGNO / CE-Gauss -->
-        <div class="teaser-card">
-          <div class="teaser-header">
-            <span class="teaser-tag">CE-Gauss (Irregular Mesh)</span>
-            <span class="teaser-dataset">16,384 nodes &nbsp;|&nbsp; Base: RIGNO &nbsp;|&nbsp; Training cutoff \(K=4\)</span>
-          </div>
-          <div class="teaser-body">
-            <div class="teaser-frames">
-              <div class="teaser-frame-wrap">
-                <div class="teaser-placeholder">
-                  <span class="teaser-placeholder-label">Prediction (k=0)</span>
-                </div>
-                <div class="teaser-frame-caption">Base RIGNO</div>
-              </div>
-              <div class="teaser-frame-wrap">
-                <div class="teaser-placeholder teaser-placeholder-gt">
-                  <span class="teaser-placeholder-label">Ground Truth</span>
-                </div>
-                <div class="teaser-frame-caption">Reference</div>
-              </div>
-            </div>
-            <div class="teaser-slider-wrap">
-              <div class="teaser-slider-labels">
-                <span>k=0</span><span>k=1</span><span>k=2</span><span>k=3</span><span class="teaser-cutoff-label">K=4</span>
-              </div>
-              <div class="teaser-track">
-                <div class="teaser-cutoff-marker" style="left:calc(4/4 * 100%)"></div>
-                <input type="range" min="0" max="4" value="0" step="1" class="teaser-range" disabled>
-              </div>
-              <div class="teaser-coming-soon">Inference frames coming soon</div>
             </div>
           </div>
         </div>
@@ -862,7 +865,7 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Theory</h2>
           <p style="font-size:0.95rem; color:var(--text-secondary); max-width:680px; margin:0 auto 1.75rem;">
-            Under local smoothness assumptions, IRNO's update rule is a contraction mapping. Even when the learned operator carries non-zero bias at the true solution, convergence is still guaranteed as the iteration settles to a unique fixed point whose error floor scales linearly with that bias.
+            Under local assumptions, IRNO's update rule is shown to be a contraction mapping. Even when the learned operator carries non-zero bias at the true solution, convergence is still guaranteed as the iteration settles to a unique fixed point whose error floor scales linearly with that bias.
           </p>
 
           <div class="corollary-box">
@@ -1279,6 +1282,24 @@
       document.querySelectorAll('.table-toggle-btn').forEach(el => el.classList.remove('active'));
       document.getElementById(id).style.display = 'block';
       btn.classList.add('active');
+    }
+
+    function updateTR2D(k) {
+      document.getElementById('tr2d-pred').src = 'static/images/tr2d_demo_crop/k' + k + '.png';
+      document.getElementById('tr2d-pred-caption').textContent =
+        k == 0 ? 'Base TFNO' : 'IRNO (k = ' + k + ')';
+    }
+
+    function updateERA5_16x(k) {
+      document.getElementById('era5-16x-pred').src = 'static/images/era5_16x_demo/era5/k' + k + '.png';
+      document.getElementById('era5-16x-caption').textContent =
+        k == 0 ? 'Base FNO' : 'IRNO (k = ' + k + ')';
+    }
+
+    function updateERA5_8x(k) {
+      document.getElementById('era5-8x-pred').src = 'static/images/era5_8x_demo/k' + k + '.png';
+      document.getElementById('era5-8x-caption').textContent =
+        k == 0 ? 'Base FNO' : 'IRNO (k = ' + k + ')';
     }
   </script>
 </body>
